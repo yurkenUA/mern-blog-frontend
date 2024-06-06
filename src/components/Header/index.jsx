@@ -4,12 +4,19 @@ import Button from '@mui/material/Button';
 import styles from './Header.module.scss';
 import Container from '@mui/material/Container';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { logOut, selectIsAuth } from '../../redux/slices/auth';
 
 export const Header = () => {
-	const isAuth = false;
+	const isAuth = useSelector(selectIsAuth);
+	const dispatch = useDispatch();
 
-	const onClickLogout = () => {};
-
+	const onClickLogout = () => {
+		if (window.confirm('Are you sure you want to logout?')) {
+			dispatch(logOut());
+			window.localStorage.removeItem('token');
+		}
+	};
 	return (
 		<div className={styles.root}>
 			<Container maxWidth="lg">
@@ -20,11 +27,11 @@ export const Header = () => {
 					<div className={styles.buttons}>
 						{isAuth ? (
 							<>
-								<Link to="/posts/create">
-									<Button variant="contained">Написать статью</Button>
+								<Link to="/add-post">
+									<Button variant="contained">Write an article</Button>
 								</Link>
 								<Button onClick={onClickLogout} variant="contained" color="error">
-									Выйти
+									Log Out
 								</Button>
 							</>
 						) : (
