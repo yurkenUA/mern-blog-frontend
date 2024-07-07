@@ -64,7 +64,7 @@ export const Post = ({
 				<UserInfo {...user} additionalText={moment(createdAt).format('YYYY-MM-DD HH:mm:ss')} />
 				<div className={styles.indention}>
 					<h2 className={clsx(styles.title, { [styles.titleFull]: isFullPost })}>
-						{isFullPost ? title : <a href={`/posts/${id}`}>{title}</a>}
+						{isFullPost ? title : <Link to={`/posts/${id}`}>{title}</Link>}
 					</h2>
 					<ul className={styles.tags}>
 						{tags.map((name) => (
