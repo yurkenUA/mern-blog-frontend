@@ -51,7 +51,7 @@ export const Home = () => {
 									id={obj._id}
 									title={obj.title}
 									imageUrl={
-										obj.imageUrl ? `https://blog-mern-ows8.onrender.com/${obj.imageUrl}` : ''
+										obj.imageUrl ? `https://blog-mern-ows8.onrender.com${obj.imageUrl}` : ''
 									}
 									user={{
 										avatarUrl: obj.user.avatarUrl,
