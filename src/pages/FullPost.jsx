@@ -35,7 +35,7 @@ export const FullPost = () => {
 				key={data._id}
 				id={data._id}
 				title={data.title}
-				imageUrl={`http://localhost:4444${data.imageUrl}`}
+				imageUrl={`https://blog-mern-ows8.onrender.com/${data.imageUrl}`}
 				user={{
 					avatarUrl: data.user.avatarUrl,
 					fullName: data.user.fullName,
